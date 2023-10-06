@@ -1,0 +1,17 @@
+<!-- <h2 mat-dialog-title>Enter Comment</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="commentText" placeholder="Comment">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</mat-dialog-actions> -->
+<div class="modal">
+    <div class="modal-content">
+      <h2>Add Comment</h2>
+      <input [(ngModel)]="commentText" placeholder="Enter your comment">
+      <button (click)="addComment()">Add</button>
+    </div>
+  </div>

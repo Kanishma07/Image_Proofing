@@ -1,0 +1,88 @@
+<div class="container">
+  <h1 style="margin-top: 50px;">Image Proofing</h1>
+  <div class="mode-selection" style="margin-bottom: 50px;">
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="toggleSquareMode()"><i class="fa fa-square-o"> &nbsp;</i> <i class="fa fa-commenting"></i></button>
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="toggleArrowMode()"><i class="fa fa-arrow-up"></i> &nbsp;<i class="fa fa-commenting"></i></button>
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="zoomIn()"><i class="fa fa-search-plus"></i></button>
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="zoomOut()"><i class="fa fa-search-minus"></i></button>
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="toggleDragMode()"><i class="fa fa-arrows"></i></button>
+    <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="rotateImage()"><i class="fa fa-repeat"></i></button>
+    <button
+    type="button"
+    class="btn btn-primary"
+    style="margin-right: 10px; margin-left: 10px;"
+    [class.crop-mode]="cropModeEnabled"
+    (click)="toggleCropMode()"
+  >
+    <i class="fa fa-crop"></i>
+  </button>
+  
+    <!-- <button type="button" class="btn btn-primary" style="margin-right: 10px; margin-left: 10px;" (click)="cropImage()"><i class="fa fa-crop"></i></button> -->
+  </div>
+  <canvas #canvas width="800" height="600" style="border: 1px solid black;"></canvas>
+  <!-- <canvas #canvas (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)" style="border: 1px solid black;"></canvas> -->
+
+  <div class="comments-container">
+    
+    <!-- <div *ngIf="showInput">
+      <input [(ngModel)]="commentText" (keydown.enter)="addComment()" placeholder="Enter your comment..." />
+      <button (click)="addComment()">Add Comment</button>
+      <button >Cancel</button>
+    </div> -->
+
+    <!-- <div *ngIf="shouldShowInput" class="comment-input">
+      <form #commentForm="ngForm" (ngSubmit)="addComment()">
+        <input type="text" name="commentText" [(ngModel)]="commentText" placeholder="Enter your comment" required>
+        <button type="submit">Add</button>
+      </form>
+    </div> -->
+    
+    <div *ngFor="let comment of comments let i = index">
+        <div *ngIf="!comment.editable; else editComment">
+          <h2 *ngIf="i === 0">Comments</h2>
+          <span class="fs-4">{{ i + 1 }}. {{ comment.text }}</span>
+          <button type="button" class="btn btn-outline-primary" btn-sm style="margin-right: 10px; margin-left: 10px;" (click)="startEditingComment(comment)"><i class="fa fa-pencil"></i></button>
+          <button type="button" class="btn btn-outline-danger" btn-sm style="margin-right: 10px;" (click)="removeComment(comment.id)"><i class="fa fa-trash"></i></button>
+        </div>
+        <ng-template #editComment>
+          <input [(ngModel)]="comment.text" placeholder="Edit the comment">
+          <button type="button" class="btn btn-outline-success" btn-sm style="margin-right: 10px; margin-left: 10px;" (click)="saveEditedComment(comment, comment.text)"><i class="fa fa-floppy-o"></i></button>
+          <button type="button" class="btn btn-outline-danger" btn-sm style="margin-right: 10px;" (click)="cancelEditing(comment)"><i class="fa fa-times"></i></button>
+        </ng-template>
+      </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <h1 style="margin-top: 50px;">Image Proofing</h1>
+<div class="image-comment">
+  <canvas #canvas (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)"></canvas>
+
+  <div class="buttons">
+    <button (click)="toggleSquareMode()" [class.active]="squareModeEnabled">Square</button>
+    <button (click)="toggleArrowMode()" [class.active]="arrowModeEnabled">Arrow</button>
+  </div>
+
+  <div *ngIf="shouldShowInput" class="comment-input">
+    <form #commentForm="ngForm" (ngSubmit)="addComment(commentText)">
+      <input type="text" name="commentText" [(ngModel)]="commentText" placeholder="Enter your comment" required>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <ul class="comment-list">
+    <li *ngFor="let comment of comments" [class.editable]="comment.editable">
+      <div *ngIf="!comment.editable" class="comment-text">
+        {{ comment.text }}
+      </div>
+      <div *ngIf="comment.editable" class="comment-edit">
+        <input type="text" [(ngModel)]="comment.text">
+        <button (click)="saveEditedComment(comment, comment.text)">Save</button>
+        <button (click)="cancelEditing(comment)">Cancel</button>
+      </div>
+      <button (click)="startEditingComment(comment)" *ngIf="!comment.editable">Edit</button>
+      <button (click)="removeComment(comment.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+</div> -->

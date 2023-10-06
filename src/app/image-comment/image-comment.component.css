@@ -1,0 +1,17 @@
+.comment-input {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 2; /* Ensure it appears above the canvas */
+  min-width: 200px; /* Adjust as needed */
+}
+
+.modal-content {
+  /* ... (Your existing styles) */
+  position: relative; /* Ensure relative positioning */
+}
+
+/* Styles for the close button and other elements if needed */

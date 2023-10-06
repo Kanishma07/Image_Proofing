@@ -1,0 +1,20 @@
+ <div class="center-container">
+    using bootstrap
+    <div style="width: 50%;">
+        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" [style.width.%]="progressValue">{{ progressValue }}%</div>
+        </div>
+    </div> 
+    <br>
+    using angular Material
+    <div *ngIf="progressValue === 100">
+        {{ progressValue }}%
+    </div>
+
+    <div *ngIf="progressValue != 100">
+        {{ progressValue }}% loading
+    </div>
+
+    <mat-progress-bar class="striped-progress-bar" mode="determinate" [value]="progressValue"></mat-progress-bar>
+</div>
+

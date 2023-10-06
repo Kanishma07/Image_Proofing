@@ -1,0 +1,109 @@
+<div class="center-container">
+  <p class="h1">Image Proofing</p>
+  <!-- <div class="row mt-5"> -->
+    <!-- <div class="col-12"> -->
+
+      <p class="h3" style="margin-top: 5px;">1. Using canvas</p>
+      <!-- <div> -->
+        <div class="row">
+          <div class="col-12">
+        <canvas #canvas width="410" height="360"></canvas>
+        <!-- </div>
+        <div class="col-12"> -->
+          <!-- {{enteredAnnotation}} -->
+        </div>
+        </div>
+      <!-- </div> -->
+  
+      <p class="h3" style="margin-top: 25px;">2. Using ngx-annotate-text</p>
+      <br>
+      <ngx-annotate-text
+        [(annotations)]="annotations"
+        [removable]="true"
+        [text]="text"
+        annotationClass="my-annotation"
+        (clickAnnotation)="onClickAnnotation($event)"
+        (removeAnnotation)="onRemoveAnnotation($event)"
+        #annotateText
+      >
+      </ngx-annotate-text>
+      
+      <!-- <img
+      src="https://example.com/your-image.jpg"
+      alt="Image"
+      [ngxAnnotator]="annotator"
+      [width]="800"
+      [height]="600"
+    /> -->
+
+
+    <!-- </div> -->
+  <!-- </div> -->
+  
+  <div class="row mt-3">
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-primary me-2"
+        (click)="addAnnotation('Date', '#0d6efd')"
+      >
+        Date
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary me-2"
+        (click)="addAnnotation('Time', '#6c757d')"
+      >
+        Time
+      </button>
+      <button
+        type="button"
+        class="btn btn-success me-2"
+        (click)="addAnnotation('Country', '#198754')"
+      >
+        Country
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger me-2"
+        (click)="addAnnotation('City', '#dc3545')"
+      >
+        City
+      </button>
+    </div>
+  </div>
+  
+  <!-- <div class="row mb-5">
+    <div class="col-12 col-lg-6 mt-3">
+      <h2 class="mb-3 display-5">Annotations</h2>
+  
+      <ul class="list-group" style="height: 15rem; overflow-y: auto">
+        <li class="list-group-item" *ngFor="let a of annotations.reverse()">
+          start: {{ a.startIndex }}, end: {{ a.endIndex }}, text: "{{ a.text }}",
+          label: {{ a.label }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col-12 col-lg-6 mt-3">
+      <h2 class="mb-3 display-5">Events</h2>
+  
+      <ul class="list-group" style="height: 15rem; overflow-y: auto">
+        <li class="list-group-item" *ngFor="let e of events.reverse()">
+          {{ e }}
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+  <!-- <div class="button-container">
+    <button type="button" class="btn btn-outline-primary" style="margin-right: 10px;">Add Square</button>
+    <button type="button" class="btn btn-outline-primary" style="margin-right: 10px;">Add Comment</button>
+    <button type="button" class="btn btn-outline-primary" style="margin-right: 10px;">Save All</button>
+    <button type="button" class="btn btn-outline-primary">Delete</button>
+  </div>
+  <br>
+  <div class="image-container">
+    <img src="assets/top-view-desk.avif" alt="Image Proofing" width="410px">
+  </div> -->
+</div>

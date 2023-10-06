@@ -25,6 +25,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,12 +90,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/@recogito/annotorious/dist/annotorious.min.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
-            ],
+            ],            
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "76f1b24f-8179-433a-8022-a647a7224e2e"
   }
 }
